@@ -3,10 +3,8 @@ class CreateQuestions < ActiveRecord::Migration
     create_table :questions do |t|
       t.string :title
       t.text :content
-      t.references :user, index: true
 
       t.timestamps null: false
     end
-    add_foreign_key :questions, :users
   end
 end
