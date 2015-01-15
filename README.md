@@ -12,6 +12,38 @@ ____________________________________
 
 * Clifton
 
+______________________________________
+
+##MVP
+
+* User Auth
+
+* User Posting of Questions(with tags) & Answers
+
+* Users can vote on Answers
+
+* Users can search for Questions/Tags
+
+* Users can have a Profile Page
+
+______________
+
+##Concept:
+
+Since the execution of the shuffle “DemBoyz” were created.
+
+We realized we had a lot to offer with our “overflow” of
+
+knowledge (or lack thereof) and decided we wanted to give
+
+back and get back from the community... thus we are
+
+pioneering a new concept where you can post question and
+
+find answers. We have brought the village elder concept
+
+online!
+
 ______________
 
 ##User Stories:
@@ -75,35 +107,3 @@ ______________
 * The site has a point system based on submissions and
 
 voting.
-
-______________
-
-##Concept:
-
-Since the execution of the shuffle “DemBoyz” were created.
-
-We realized we had a lot to offer with our “overflow” of
-
-knowledge (or lack thereof) and decided we wanted to give
-
-back and get back from the community... thus we are
-
-pioneering a new concept where you can post question and
-
-find answers. We have brought the village elder concept
-
-online!
-
-______________________________________
-
-##MVP
-
-* User Auth
-
-* User Posting of Questions(with tags) & Answers
-
-* Users can vote on Answers
-
-* Users can search for Questions/Tags
-
-* Users can have a Profile Page
