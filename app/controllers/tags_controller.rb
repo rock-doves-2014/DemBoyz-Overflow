@@ -1,4 +1,5 @@
 class TagsController < ApplicationController
+  before_action :validate_user, except: [:index, :show]
 
   def index
     @tags = Tag.search(params[:search])
@@ -29,9 +30,9 @@ class TagsController < ApplicationController
     end
   end
 
-  
+
   private
-  
+
   def tag_params
     params.require(:tag).permit(:title)
   end

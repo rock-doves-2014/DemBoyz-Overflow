@@ -1,4 +1,6 @@
 class AnswersController < ApplicationController
+  before_action :validate_user
+
   def new
     @answer = Answer.new
     @question_id = params[:question_id]

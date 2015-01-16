@@ -1,4 +1,5 @@
 class VotesController < ApplicationController
+  before_action :validate_user, except: :show
 
   def show
     @vote = Vote.find(params[:id])
