@@ -23,6 +23,13 @@ ActiveRecord::Schema.define(version: 20150116012943) do
     t.boolean  "status"
     t.datetime "created_at"
     t.datetime "updated_at"
+
+  create_table "users", force: :cascade do |t|
+    t.string   "name",            null: false
+    t.string   "email",           null: false
+    t.string   "password_digest", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
 end
