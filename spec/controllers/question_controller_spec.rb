@@ -1,6 +1,6 @@
 require 'rails_helper'
 
- 
+
 describe QuestionsController do
   describe "POST create" do
     it "creates a new Question" do
