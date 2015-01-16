@@ -1,16 +1,40 @@
-<%= @question.title %>
-<%= @question.content %>
-<ul>
-<% @question.answers.each do |answer| %>
-  <li>
-    <%= answer.content %>
-    <%= link_to "Edit Answer", edit_answer_path(answer.id, question_id: @question.id), method: :get %>
-    <%= button_to "Delete Answer", answer, :method => :delete %>
+Title: <%= @question.title %>
+<br><br>
+Content: <%= @question.content %>
+<br><br>
 
-  </li>
-</ul>
-<% end %>
+Answers:
+  <ul>
+    <% @question.answers.each do |answer| %>
+      <li>
+        <%= form_for @vote do |f| %>
+          <%= f.hidden_field :status, :value => true %>
+          <%= f.hidden_field :answer_id, :value => answer.id %>
+          <%= f.submit 'Up Vote' %>
+        <% end %>
+
+        <%= answer.content %>
+
+        <%= form_for @vote do |f| %>
+          <%= f.hidden_field :status, :value => false %>
+          <%= f.hidden_field :answer_id, :value => answer.id %>
+          <%= f.submit 'Down Vote' %>
+        <% end %>
+
+        <%= link_to "Edit Answer", edit_answer_path(answer.id, question_id: @question.id), method: :get %>
+        <%= link_to "Delete Answer", answer, :method => :delete %>
+      </li><br><br><br>
+    <% end %>
+
+
+
+
+
+
+
+
+  </ul>
 
 <%= link_to "Answer Question", new_answer_path(question_id: @question.id), method: :get %>
-<%= button_to "Edit Question", edit_question_path(@question.id), method: :get %>
-<%= button_to "Delete Question", @question, :method => :delete %>
+<%= link_to "Edit Question", edit_question_path(@question.id), method: :get %>
+<%= link_to "Delete Question", @question, :method => :delete %>

@@ -16,6 +16,22 @@ ActiveRecord::Schema.define(version: 20150116012943) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "answers", force: :cascade do |t|
+    t.text     "content"
+    t.integer  "question_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "answers", ["question_id"], name: "index_answers_on_question_id", using: :btree
+
+  create_table "questions", force: :cascade do |t|
+    t.string   "title"
+    t.text     "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "tags", force: :cascade do |t|
     t.string   "title",       limit: 20
     t.integer  "question_id"
@@ -32,26 +48,13 @@ ActiveRecord::Schema.define(version: 20150116012943) do
   end
 
   create_table "votes", force: :cascade do |t|
-    t.boolean  "status"
+    t.boolean  "status",     null: false
+    t.integer  "answer_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "answers", force: :cascade do |t|
-    t.text     "content"
-    t.integer  "question_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
-  add_index "answers", ["question_id"], name: "index_answers_on_question_id", using: :btree
-
-  create_table "questions", force: :cascade do |t|
-    t.string   "title"
-    t.text     "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+  add_index "votes", ["answer_id"], name: "index_votes_on_answer_id", using: :btree
 
   add_foreign_key "answers", "questions"
 end
