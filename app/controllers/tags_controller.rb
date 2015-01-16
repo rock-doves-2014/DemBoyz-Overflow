@@ -1,8 +1,14 @@
 class TagsController < ApplicationController
 
   def index
-   @tags = Tag.all
+    @tags = Tag.search(params[:search])
+    if params[:search]
+      @tags = Tag.search(params[:search]).order("created_at DESC")
+    else
+      @tags = Tag.all.order('created_at DESC')
+    end
   end
+
 
   def show
     @tag = Tag.find(params[:id])
@@ -17,7 +23,7 @@ class TagsController < ApplicationController
     @tag = Tag.new(tag_params)
 
     if @tag.save
-      redirect_to tag_path(@tag)
+      redirect_to tags_path(@tag)
     else
       render :new
     end
