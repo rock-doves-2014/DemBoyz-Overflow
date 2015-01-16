@@ -1,7 +1,10 @@
 <%= form_for @vote do |f| %>
-  <%= f.button 'Up Vote' %>
+  <%= f.hidden_field :status, :value => true %>
+  <%= f.submit 'Up Vote' %>
 <% end %>
 
 <%= form_for @vote do |f| %>
-  <% f.button 'Down Vote' %>
+  <%= f.hidden_field :status, :value => false %>
+  <%= f.submit 'Down Vote' %>
 <% end %>
+

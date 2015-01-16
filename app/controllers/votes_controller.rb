@@ -20,8 +20,9 @@ class VotesController < ApplicationController
   end
 
 private
-  def vote_params
-    params.require(:vote).permit(:status)
-  end
+
+    def vote_params
+      params.require(:vote).permit(:status)
+    end
 
 end
