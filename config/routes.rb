@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
 
   post '/login' => 'welcome#login'
+  get '/logout' => 'welcome#logout'
+
   resources :tags
 
   resources :votes

@@ -35,4 +35,19 @@ describe WelcomeController do
 
   end
 
+  describe 'GET #logout' do
+    it "sets session[:user_id] to nil" do
+      user = create(:user)
+      session[:user_id] = user.id
+      get :logout
+      expect(session[:user_id]).not_to eq(user.id)
+    end
+    it "redirects to the root_path" do
+      user = create(:user)
+      session[:user_id] = nil
+      get :logout
+      expect(response).to redirect_to root_path
+    end
+  end
+
 end
