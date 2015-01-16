@@ -19,4 +19,13 @@ describe QuestionsController do
       }.to change(Question, :count).by(-1)
     end
   end
+
+  describe "PUT update" do
+    it "updates the requested question" do
+      question = Question.create!(title: 'Title', content: 'Content')
+      Question.any_instance.should_receive(:update).with({ "title" => "new title" })
+      put :update, {:id => question.to_param, :question => { "title" => "new title" }}
+    end
+  end
+
 end
