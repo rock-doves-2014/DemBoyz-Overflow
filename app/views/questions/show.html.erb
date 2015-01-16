@@ -1,0 +1,16 @@
+<%= @question.title %>
+<%= @question.content %>
+<ul>
+<% @question.answers.each do |answer| %>
+  <li>
+    <%= answer.content %>
+    <%= link_to "Edit Answer", edit_answer_path(answer.id, question_id: @question.id), method: :get %>
+    <%= button_to "Delete Answer", answer, :method => :delete %>
+
+  </li>
+</ul>
+<% end %>
+
+<%= link_to "Answer Question", new_answer_path(question_id: @question.id), method: :get %>
+<%= button_to "Edit Question", edit_question_path(@question.id), method: :get %>
+<%= button_to "Delete Question", @question, :method => :delete %>
