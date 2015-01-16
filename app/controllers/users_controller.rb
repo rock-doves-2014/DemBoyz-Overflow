@@ -1,7 +1,12 @@
 class UsersController < ApplicationController
+  before_action :validate_user, except: [:new, :create]
 
   def new
+    unless current_user
     @user = User.new
+    else
+      redirect_to user_path(session[:user_id])
+    end
   end
 
   def create
