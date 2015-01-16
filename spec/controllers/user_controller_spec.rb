@@ -6,21 +6,29 @@ describe UsersController do
       name { Faker::Name.name }
       email { Faker::Internet.free_email }
       password { Faker::Internet.password }
+
+      factory :invalid_user do
+        name { Faker::Name.name }
+        email nil
+        password { Faker::Internet.password }
+      end
     end
   end
 
   describe 'GET #show' do
+
     it 'assigns the requested user to @user' do
-      user = FactoryGirl.create(:user)
+      user = create(:user)
       get :show, id: user
       expect(assigns(:user)).to eq user
     end
 
     it 'renders the show template' do
-      user = FactoryGirl.create(:user)
+      user = create(:user)
       get :show, id: user
       expect(response).to render_template :show
     end
+
   end
 
   describe 'GET #new' do
