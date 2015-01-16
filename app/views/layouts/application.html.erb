@@ -7,6 +7,38 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div>
+    <% if current_user %>
+      <div class='loggedIn'>
+        <h3>Welcome</h3>
+        <div>
+          <h3><%= link_to "Logout", logout_path %></h3>
+        </div>
+      </div>
+    <% else %>
+      <div class='login'>
+        <h3>Login</h3>
+        <%= form_for :welcome, url: login_path do |f| %>
+          <%= f.label :email %>
+          <%= f.text_field :email %>
+          <%= f.label :password %>
+          <%= f.password_field :attribute %>
+          <%= f.submit "Login" %>
+        <% end %>
+        <h4>- or -</h4>
+        <h3>Signup</h3>
+        <%= form_for @user do |f| -%>
+          <%= f.label :name %>
+          <%= f.text_field :name %>
+          <%= f.label :email %>
+          <%= f.text_field :email %>
+          <%= f.label :password %>
+          <%= f.password_field :attribute %>
+          <%= f.submit "Signup" %>
+        <% end -%>
+      </div>
+    <% end %>
+  </div>
 
 <%= yield %>
 
