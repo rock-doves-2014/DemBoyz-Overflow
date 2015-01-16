@@ -5,7 +5,7 @@ describe AnswersController do
     question = Question.create(title:'Title', content: 'Content')
     it "creates a new Answer" do
       expect {
-        post :create, answer: {:answers => {:content => 'Content', :question_id => Question.last.id }}
+        post :create, answer: {content: 'Content', question_id: question.id }
       }.to change(Answer, :count).by(1)
     end
   end
