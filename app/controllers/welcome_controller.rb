@@ -4,7 +4,7 @@ class WelcomeController < ApplicationController
   end
 
   def login
-    @user = User.find(params[:id]).try(:authenticate, params[:password])
+    @user = User.find_by_email(params[:welcome][:email]).try(:authenticate, params[:welcome][:password])
     if @user
       session[:user_id] = @user.id
       redirect_to user_path(@user)

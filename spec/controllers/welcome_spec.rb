@@ -7,13 +7,13 @@ describe WelcomeController do
       it "assigns the user's id to session[:user_id]" do
         user = create(:user)
         session[:user_id] = nil
-        post :login, id: user, password: user.password
+        post :login, welcome: {email: user.email, password: user.password}
         expect(session[:user_id]).to eq(user.id)
       end
       it "redirects to the user_path" do
         user = create(:user)
         session[:user_id] = nil
-        post :login, id: user, password: user.password
+        post :login, welcome: {email: user.email, password: user.password}
         expect(response).to redirect_to user_path(user)
       end
     end
@@ -22,13 +22,13 @@ describe WelcomeController do
       it "doesn't assign the user's id to session[:user_id]" do
         user = create(:user)
         session[:user_id] = nil
-        post :login, id: user, password: 'invalid_id'
+        post :login, welcome: {email: user.email, password: 'invalid_password'}
         expect(session[:user_id]).not_to eq(user.id)
       end
       it "redirects to the root_path" do
         user = create(:user)
         session[:user_id] = nil
-        post :login, id: user, password: 'invalid_id'
+        post :login, welcome: {email: user.email, password: 'invalid_password'}
         expect(response).to redirect_to root_path
       end
     end
