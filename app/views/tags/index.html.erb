@@ -1,0 +1,12 @@
+<h2> Tags </h2>
+
+  <%= form_tag(tags_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search Tags" %>
+    <%= submit_tag "Search", :name => nil %>
+  <% end %>
+
+  
+  <ul>
+    <% @tags.each do |tag| %>
+    <li> <%= tag.title %> </li>
+  <% end %>
