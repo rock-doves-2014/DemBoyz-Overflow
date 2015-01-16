@@ -8,4 +8,5 @@
 </ul>
 <% end %>
 
-<%= button_to "Delete Question", @question, :method => :delete %>
+<%= button_to "Edit Question", edit_question_path(@question.id) %>
+<%= button_to "Delete Question", @question, :method => :edit %>
