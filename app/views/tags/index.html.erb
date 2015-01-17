@@ -8,8 +8,11 @@
 
   <ul>
     <% @tags.each do |tag| %>
-    <li> <%= link_to tag.title %> </li>
-  <% end %>
+      <li> <%= link_to tag.title, tag_path(tag) %> </li>
+    <% end %>
+  </ul>
+
+
 
 
 
