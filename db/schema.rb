@@ -11,29 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150117001351) do
+ActiveRecord::Schema.define(version: 20150117165610) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "answers", force: :cascade do |t|
     t.text     "content"
-    t.integer  "question_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
-  add_index "answers", ["question_id"], name: "index_answers_on_question_id", using: :btree
-
-  create_table "questions", force: :cascade do |t|
-    t.string   "title",      null: false
-    t.text     "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "tags", force: :cascade do |t|
-    t.string   "title",       limit: 20
     t.integer  "question_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
@@ -55,6 +39,7 @@ ActiveRecord::Schema.define(version: 20150117001351) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
+    t.string   "image"
   end
 
   create_table "tags", force: :cascade do |t|
@@ -72,7 +57,6 @@ ActiveRecord::Schema.define(version: 20150117001351) do
   end
 
   create_table "votes", force: :cascade do |t|
-    t.boolean  "status"
     t.boolean  "status",     null: false
     t.integer  "answer_id"
     t.datetime "created_at"
