@@ -1,16 +1,49 @@
-<%= @question.title %><br>
-<%= @question.content %>
-<ul>
-<% @question.answers.each do |answer| %>
-  <li>
-    <%= answer.content %>
-    <%= link_to "Edit Answer", edit_answer_path(answer.id, question_id: @question.id), method: :get %>
-    <%= button_to "Delete Answer", answer, :method => :delete %>
+Title: <%= @question.title %><br><br>
+Question: <%= @question.content %><br><br>
 
-  </li>
+Answers:
+<ul>
+  <% @question.answers.each do |answer| %>
+    <li>
+
+      <div class="vote_count">
+        <%= answer.calculate_up_votes %>
+      </div>
+
+      <div class="vote_btn">
+        <%= form_for @vote do |f| %>
+          <%= f.hidden_field :status, :value => true %>
+          <%= f.hidden_field :answer_id, :value => answer.id %>
+          <%= f.hidden_field :question_id, :value => @question.id %>
+          <%= f.submit 'Up Vote' %>
+        <% end %>
+      </div>
+
+      <div class="answers">
+        <%= answer.content %>
+      </div>
+
+      <div class="vote_btn">
+        <%= form_for @vote do |f| %>
+          <%= f.hidden_field :status, :value => false %>
+          <%= f.hidden_field :answer_id, :value => answer.id %>
+          <%= f.hidden_field :question_id, :value => @question.id %>
+          <%= f.submit 'Down Vote' %>
+        <% end %>
+      </div>
+
+      <div class="vote_count">
+        <%= answer.calculate_down_votes %>
+      </div>
+
+      <%= link_to "Edit Answer", edit_answer_path(answer.id, question_id: @question.id), method: :get %>
+      <%= link_to "Delete Answer", answer, :method => :delete %>
+
+    </li><br><br><br>
+  <% end %>
 </ul>
-<% end %>
 
 <%= link_to "Answer Question", new_answer_path(question_id: @question.id), method: :get %>
-<%= button_to "Edit Question", edit_question_path(@question.id), method: :get %>
-<%= button_to "Delete Question", @question, :method => :delete %>
+<%= link_to "Edit Question", edit_question_path(@question.id), method: :get %>
+<%= link_to "Delete Question", @question, :method => :delete %>
+

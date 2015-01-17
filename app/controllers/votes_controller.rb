@@ -12,9 +12,8 @@ class VotesController < ApplicationController
   def create
     @vote = Vote.new(vote_params)
 
-    # will have to adjust actions when actually voting
     if @vote.save
-      redirect_to vote_path(@vote)
+      redirect_to question_path(id: params[:vote][:question_id])
     else
       redirect_to new_vote_path
     end
@@ -23,7 +22,7 @@ class VotesController < ApplicationController
 private
 
     def vote_params
-      params.require(:vote).permit(:status)
+      params.require(:vote).permit(:status, :answer_id)
     end
 
 end

@@ -1,0 +1,18 @@
+.vote_btn {
+  display: inline-block;
+  padding: 1%;
+}
+
+.vote_count {
+  display: inline-block;
+}
+
+.answers {
+  display: inline-block;
+  padding: 1%;
+}
+
+ul {
+  list-style: none;
+}
+
