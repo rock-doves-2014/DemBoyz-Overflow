@@ -5,11 +5,14 @@
     <%= submit_tag "Search", :name => nil %>
   <% end %>
 
-  
+
   <ul>
     <% @tags.each do |tag| %>
-    <li> <%= tag.title %> </li>
-  <% end %>
+      <li> <%= link_to tag.title, tag_path(tag) %> </li>
+    <% end %>
+  </ul>
+
+
 
 
 
