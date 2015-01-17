@@ -20,6 +20,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @questions = @user.questions.order(created_at: :desc).limit(10)
+    @answers = @user.answers.order(created_at: :desc).limit(10)
   end
 
   private
