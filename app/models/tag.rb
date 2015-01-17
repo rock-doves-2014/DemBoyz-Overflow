@@ -8,4 +8,11 @@ class Tag < ActiveRecord::Base
     where("title like ?", "%#{query}%")
   end
 
+  def get_tag_questions
+    questions = []
+    tqs = QuestionTag.where(tag_id: self.id)
+    tqs.map { |tq| questions << Question.find(tq.question_id) }
+    questions
+  end
+
 end
