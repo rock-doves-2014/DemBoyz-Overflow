@@ -23,7 +23,7 @@ class VotesController < ApplicationController
 private
 
     def vote_params
-      params.require(:vote).permit(:status)
+      params.require(:vote).permit(:status, :answer_id)
     end
 
 end

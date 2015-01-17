@@ -7,7 +7,7 @@ Answers:
     <li>
 
       <div class="up_votes">
-
+        <%= Answer.calculate_up_votes(answer) %>
       </div>
 
       <div class="vote_btn">
@@ -33,7 +33,7 @@ Answers:
       </div>
 
       <div class="down_votes">
-
+        <%= Answer.calculate_down_votes(answer) %>
       </div>
 
       <%= link_to "Edit Answer", edit_answer_path(answer.id, question_id: @question.id), method: :get %>
