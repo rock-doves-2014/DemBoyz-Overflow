@@ -13,6 +13,7 @@ class QuestionsController < ApplicationController
   def show
     @question = Question.find(params[:id])
     @user = User.find(@question.user_id)
+    @tags = @question.get_question_tags
     @vote = Vote.new
   end
 
