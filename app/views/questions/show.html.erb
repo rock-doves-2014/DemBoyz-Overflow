@@ -3,8 +3,8 @@ Title: <%= @question.title %><br><br>
 Question: <%= @question.content %><br><br>
 
 Tags:
-  <%= @tags.each do |tag| %>
-      <%= tag.title %>
+  <% @tags.each do |tag| %>
+    <%= tag.title %>
   <% end %><br><br>
 
 Answers:
