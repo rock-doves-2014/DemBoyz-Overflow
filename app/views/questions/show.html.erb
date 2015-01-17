@@ -6,6 +6,10 @@ Answers:
   <% @question.answers.each do |answer| %>
     <li>
 
+      <div class="up_votes">
+
+      </div>
+
       <div class="vote_btn">
         <%= form_for @vote do |f| %>
           <%= f.hidden_field :status, :value => true %>
@@ -26,6 +30,10 @@ Answers:
           <%= f.hidden_field :question_id, :value => @question.id %>
           <%= f.submit 'Down Vote' %>
         <% end %>
+      </div>
+
+      <div class="down_votes">
+
       </div>
 
       <%= link_to "Edit Answer", edit_answer_path(answer.id, question_id: @question.id), method: :get %>
