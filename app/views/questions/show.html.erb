@@ -4,7 +4,7 @@ Question: <%= @question.content %><br><br>
 
 Tags:
   <% @tags.each do |tag| %>
-    <%= tag.title %>
+    <%= link_to tag.title, tag_path(tag) %>
   <% end %><br><br>
 
 Answers:

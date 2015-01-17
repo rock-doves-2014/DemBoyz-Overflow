@@ -13,6 +13,7 @@ class TagsController < ApplicationController
 
   def show
     @tag = Tag.find(params[:id])
+    @questions = @tag.get_tag_questions
   end
 
   def new
