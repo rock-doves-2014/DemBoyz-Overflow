@@ -14,9 +14,11 @@ class QuestionsController < ApplicationController
   end
 
   def create
+    tag_names = params[:question].delete(:tag)
     @question = Question.new(question_params)
     if @question.save
       redirect_to question_path(@question.id)
+      @question.create_tags(tag_names)
     else
       render @question
     end
