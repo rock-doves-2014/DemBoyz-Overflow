@@ -1,5 +1,18 @@
 <div>
-  <h1>Profile</h1>
-  <p>Username: <%= @user.name %></p>
-  <p>Email Address: <%= @user.email %></p>
+  <h1>Welcome, <%= @user.name %></h1>
+  <div><%= gravatar_tag @user.email %></div>
+
+  <h3>Questions</h3>
+  <% @user.questions.order(created_at: :desc)[0..9].each do |question| %>
+  <ul>
+    <li><%= link_to question.title, question_path(question.id) %></li>
+  <% end %>
+  </ul>
+
+  <h3>Answers</h3>
+  <% @user.answers.order(created_at: :desc)[0..9].each do |answer| %>
+  <ul>
+    <li><%= link_to answer.question.title, question_path(answer.question_id) %></li>
+  <% end %>
+  </ul>
 </div>
