@@ -12,4 +12,9 @@ class Answer < ActiveRecord::Base
     @down_votes = Vote.where(status: false, answer_id: self.id)
     @down_votes.count
   end
+
+  def reset_votes_to_zero
+    self.votes.delete_all
+  end
+
 end
