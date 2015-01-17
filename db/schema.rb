@@ -18,8 +18,6 @@ ActiveRecord::Schema.define(version: 20150117001351) do
 
   create_table "answers", force: :cascade do |t|
     t.text     "content"
-<<<<<<< HEAD
-=======
     t.integer  "question_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
@@ -36,7 +34,6 @@ ActiveRecord::Schema.define(version: 20150117001351) do
 
   create_table "tags", force: :cascade do |t|
     t.string   "title",       limit: 20
->>>>>>> schema added
     t.integer  "question_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
@@ -76,14 +73,14 @@ ActiveRecord::Schema.define(version: 20150117001351) do
 
   create_table "votes", force: :cascade do |t|
     t.boolean  "status"
+    t.boolean  "status",     null: false
     t.integer  "answer_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-<<<<<<< HEAD
     t.integer  "user_id"
-=======
->>>>>>> schema added
   end
+
+  add_index "votes", ["answer_id"], name: "index_votes_on_answer_id", using: :btree
 
   add_foreign_key "answers", "questions"
 end
