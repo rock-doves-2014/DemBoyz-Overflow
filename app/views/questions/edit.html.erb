@@ -1,7 +1,15 @@
-<%= form_for(@question) do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <%= f.label :content %>
-  <%= f.text_area :content %>
-  <%= f.submit "Edit Question" %> 
-<% end %>
+<div class="row"><p></p></div>
+<div class="row">
+  <div class="large-9 columns" role="content">
+    <h3>Edit your question:</h3>
+    <%= form_for(@question) do |f| %>
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+      <%= f.label :content %>
+      <%= f.text_area :content %>
+      <%= f.submit "Edit Question", class: 'small button' %>
+    <% end %>
+  </div>
+  <aside class="large-3 columns">
+  </aside>
+</div>
