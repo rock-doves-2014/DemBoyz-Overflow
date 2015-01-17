@@ -1,9 +1,13 @@
 .vote_btn {
   display: inline-block;
-  padding: 1%;
+  padding: 0.5%;
 }
 
 .answers {
   display: inline-block;
   padding: 1%;
+}
+
+ul {
+  list-style: none;
 }
