@@ -1,5 +1,5 @@
 class WelcomeController < ApplicationController
-  before_action :validate_user, except: [:index, :login]
+  before_action :validate_user, except: [:index, :login, :logout]
 
   def index
   end

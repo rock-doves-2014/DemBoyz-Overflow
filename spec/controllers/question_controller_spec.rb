@@ -1,7 +1,12 @@
 require 'rails_helper'
 
-
 describe QuestionsController do
+
+  before(:each) do
+  user = create(:user)
+  session[:user_id] = user.id
+  end
+
   describe "POST create" do
     it "creates a new Question" do
       expect {
