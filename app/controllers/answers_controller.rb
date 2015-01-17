@@ -31,6 +31,7 @@ class AnswersController < ApplicationController
     @answer.update(answer_params)
 
     if @answer.save
+      @answer.reset_votes_to_zero
       redirect_to question_path(@answer.question.id)
     else
       render @answer
