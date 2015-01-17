@@ -2,6 +2,9 @@ class WelcomeController < ApplicationController
   before_action :validate_user, except: [:index, :login, :logout]
 
   def index
+    @questions = Question.includes(:user).order('created_at DESC').limit(5)
+    @tags = Tag.limit(30)
+    @last_user = User.last
   end
 
   def login

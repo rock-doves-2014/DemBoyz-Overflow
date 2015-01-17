@@ -23,7 +23,7 @@
           <li><%= form_tag(questions_path, :method => "get", id: "search-form") do %>
               <%= text_field_tag :search, params[:search], placeholder: "Search Questions", size: 60 %></li>
           <li> | </li>
-          <li><%= submit_tag "Search", :name => nil %></li>
+          <li><%= submit_tag "Search", :name => nil, class: 'small button' %></li>
           <% end %>
         </ul>
         <ul class='right'>
@@ -43,7 +43,7 @@
                   <li> | </li>
                   <li><%= f.password_field :password,   placeholder: "Password" %></li>
                   <li> | </li>
-                  <li><%= f.submit "Login" %></li>
+                  <li><%= f.submit "Login", class: 'small button' %></li>
                 <% end %>
                 <li><%= link_to "Signup", new_user_path %></li>
               </div>
