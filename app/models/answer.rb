@@ -8,8 +8,8 @@ class Answer < ActiveRecord::Base
     @up_votes.count
   end
 
-  def self.calculate_down_votes(answer)
-    @down_votes = Vote.where(status: false, answer_id: answer.id)
+  def calculate_down_votes
+    @down_votes = Vote.where(status: false, answer_id: self.id)
     @down_votes.count
   end
 end
