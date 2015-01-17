@@ -2,6 +2,11 @@ Title: <%= @question.title %><br><br>
 <img src="<%= @question.image %>"/> <br><br>
 Question: <%= @question.content %><br><br>
 
+Tags:
+  <% @tags.each do |tag| %>
+    <%= tag.title %>
+  <% end %><br><br>
+
 Answers:
 <ul>
   <% @question.answers.each do |answer| %>

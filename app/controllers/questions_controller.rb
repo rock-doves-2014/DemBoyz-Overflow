@@ -12,6 +12,7 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.find(params[:id])
+    @tags = @question.get_question_tags
     @vote = Vote.new
   end
 
