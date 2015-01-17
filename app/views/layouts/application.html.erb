@@ -30,7 +30,8 @@
           <% if current_user %>
             <div class='loggedIn'>
               <div>
-                <li><%= link_to("Create Question", new_question_path) %></li>
+                <li><%= link_to "Profile", user_path(session[:user_id]) %></li>
+                <li><%= link_to "Create Question", new_question_path %></li>
                 <li><%= link_to "Logout", logout_path %></li>
               </div>
             </div>
