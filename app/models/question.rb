@@ -16,13 +16,14 @@ class Question < ActiveRecord::Base
     where("title like ?", "%#{query}%")
   end
 
-    def get_question_tags
+  def get_question_tags
     tags = []
     qts = QuestionTag.where(question_id: self.id)
 
-      qts.each do |qt|
-        tags << Tag.find(qt.tag_id)
-      end
+    qts.each do |qt|
+      tags << Tag.find(qt.tag_id)
+    end
+
     tags
   end
 
