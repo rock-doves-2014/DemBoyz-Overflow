@@ -13,7 +13,7 @@ class VotesController < ApplicationController
     @vote = Vote.new(vote_params)
 
     if @vote.save
-      redirect_to questions_path
+      redirect_to question_path(id: params[:vote][:question_id])
     else
       redirect_to new_vote_path
     end
