@@ -3,7 +3,7 @@ c = User.create(name:"clifton", email:"clifton@dbc.com", password_digest:"lop")
 d = User.create(name:"dylan", email:"dylan@dbc.com", password_digest:"lop")
 j = User.create(name:"jorge", email:"jorge@dbc.com", password_digest:"lop")
 
-l.questions.create(title: "Irunny nose", content: "it's like I pulled my finger out of a dam, help!!", image: "http://www.fasthomeremedy.com/wp-content/uploads/2013/06/174-620x350.jpg")
+l.questions.create(title: "runny nose", content: "it's like I pulled my finger out of a dam, help!!", image: "http://www.fasthomeremedy.com/wp-content/uploads/2013/06/174-620x350.jpg")
 
 c.questions.create(title: "my words don't sound like english", content: "hertt aort yeeeee-O", image: "http://www.troll.me/images/engineering-professor/has-a-phd-cant-speak-english-thumb.jpg")
 
