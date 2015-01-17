@@ -6,8 +6,8 @@ Answers:
   <% @question.answers.each do |answer| %>
     <li>
 
-      <div class="up_votes">
-        <%= Answer.calculate_up_votes(answer) %>
+      <div class="vote_count">
+        <%= answer.calculate_up_votes %>
       </div>
 
       <div class="vote_btn">
@@ -32,7 +32,7 @@ Answers:
         <% end %>
       </div>
 
-      <div class="down_votes">
+      <div class="vote_count">
         <%= Answer.calculate_down_votes(answer) %>
       </div>
 

@@ -3,8 +3,8 @@ class Answer < ActiveRecord::Base
   belongs_to :question
   has_many :votes
 
-  def self.calculate_up_votes(answer)
-    @up_votes = Vote.where(status: true, answer_id: answer.id)
+  def calculate_up_votes
+    @up_votes = Vote.where(status: true, answer_id: self.id)
     @up_votes.count
   end
 
