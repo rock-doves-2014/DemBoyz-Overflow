@@ -9,4 +9,11 @@ class Question < ActiveRecord::Base
       self.tags.create(title: tag.strip)
     end
   end
+  
+  validates :title, presence: true
+  
+  def self.search(query)
+    where("title like ?", "%#{query}%") 
+  end
+
 end
