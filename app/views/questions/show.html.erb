@@ -4,19 +4,25 @@
     <% @question.answers.each do |answer| %>
       <li>
 
-        <%= form_for @vote do |f| %>
-          <%= f.hidden_field :status, :value => true %>
-          <%= f.hidden_field :answer_id, :value => answer.id %>
-          <%= f.submit 'Up Vote' %>
-        <% end %>
+        <div class="vote_btn">
+          <%= form_for @vote do |f| %>
+            <%= f.hidden_field :status, :value => true %>
+            <%= f.hidden_field :answer_id, :value => answer.id %>
+            <%= f.submit 'Up Vote' %>
+          <% end %>
+        </div>
 
-        <%= answer.content %>
+        <div class="answers">
+          <%= answer.content %>
+        </div>
 
-        <%= form_for @vote do |f| %>
-          <%= f.hidden_field :status, :value => false %>
-          <%= f.hidden_field :answer_id, :value => answer.id %>
-          <%= f.submit 'Down Vote' %>
-        <% end %>
+        <div class="vote_btn">
+          <%= form_for @vote do |f| %>
+            <%= f.hidden_field :status, :value => false %>
+            <%= f.hidden_field :answer_id, :value => answer.id %>
+            <%= f.submit 'Down Vote' %>
+          <% end %>
+        </div>
 
         <%= link_to "Edit Answer", edit_answer_path(answer.id, question_id: @question.id), method: :get %>
         <%= link_to "Delete Answer", answer, :method => :delete %>
