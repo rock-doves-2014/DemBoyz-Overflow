@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20150117165610) do
   end
 
   create_table "questions", force: :cascade do |t|
-    t.string   "title"
+    t.string   "title",      null: false
     t.text     "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -57,14 +57,12 @@ ActiveRecord::Schema.define(version: 20150117165610) do
   end
 
   create_table "votes", force: :cascade do |t|
-    t.boolean  "status",     null: false
+    t.boolean  "status"
     t.integer  "answer_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
   end
-
-  add_index "votes", ["answer_id"], name: "index_votes_on_answer_id", using: :btree
 
   add_foreign_key "answers", "questions"
 end
