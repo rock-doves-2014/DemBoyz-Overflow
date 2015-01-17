@@ -8,6 +8,11 @@ describe VotesController do
     end
   end
 
+  before(:each) do
+  user = create(:user)
+  session[:user_id] = user.id
+  end
+
   describe 'GET #show' do
     it 'assigns the newly created vote to @vote' do
       vote = FactoryGirl.create(:vote)

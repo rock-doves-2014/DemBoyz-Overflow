@@ -15,7 +15,13 @@ describe UsersController do
     end
   end
 
+
   describe 'GET #show' do
+
+    before(:each) do
+    user = create(:user)
+    session[:user_id] = user.id
+    end
 
     it 'assigns the requested user to @user' do
       user = create(:user)

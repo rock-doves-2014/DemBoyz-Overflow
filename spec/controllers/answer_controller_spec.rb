@@ -1,6 +1,12 @@
 require 'rails_helper'
 
 describe AnswersController do
+
+  before(:each) do
+  user = create(:user)
+  session[:user_id] = user.id
+  end
+
   describe "POST create" do
     question = Question.create(title:'Title', content: 'Content')
     it "creates a new Answer" do

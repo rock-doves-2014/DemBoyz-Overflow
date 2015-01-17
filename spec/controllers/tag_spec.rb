@@ -8,6 +8,11 @@ FactoryGirl.define do
   end
 end
 
+  before(:each) do
+  user = create(:user)
+  session[:user_id] = user.id
+  end
+
   describe 'GET #show' do
     it 'assigns the requested tag to @tag' do
       tag = FactoryGirl.create(:tag)
