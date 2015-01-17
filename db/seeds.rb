@@ -11,3 +11,8 @@ d.questions.create(title: "offered as tribute AGAIN", content: "come on guys. st
 
 j.questions.create(title: "If you think it is cool...", content: "Yes, I am the brain behind this operation.", image: "http://images.teamsugar.com/files/users/1/13839/42_2007/albert-einstein-young-1.jpg")
 
+Tag.create(title: "sidewalk", question_id: 7)
+Tag.create(title: "tribute", question_id: 7)
+Tag.create(title: "rockdoves", question_id: 7)
+
+
