@@ -1,15 +1,22 @@
-<%= form_for(@question) do |f| %>
-  <%= f.hidden_field :user_id value: session[:user_id] %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <%= f.label :image_url %>
-  <%= f.text_field :image %>
-  <%= f.label :content %>
-  <%= f.text_area :content %>
-  <%= f.fields_for :tag do |f| %>
-    <%= f.label :tags %>
-    <%= f.text_field :title %>
-  <% end %>
-  <%= f.submit "Create Question" %>
-<% end %>
-
+<div class="row"><p></p></div>
+<div class="row">
+  <div class="large-9 columns" role="content">
+    <h3>Tell DemBoyz your problem:</h3>
+    <%= form_for(@question) do |f| %>
+      <%= f.hidden_field :user_id, value: session[:user_id] %>
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+      <%= f.label :image_url %>
+      <%= f.text_field :image %>
+      <%= f.label :content %>
+      <%= f.text_area :content %>
+      <%= f.fields_for :tag do |f| %>
+        <%= f.label :tags %>
+        <%= f.text_field :title %>
+      <% end %>
+      <%= f.submit "Create Question", class: 'small button' %>
+    <% end %>
+  </div>
+  <aside class="large-3 columns">
+  </aside>
+</div>

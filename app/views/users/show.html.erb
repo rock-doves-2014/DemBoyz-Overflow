@@ -1,18 +1,31 @@
-<div>
-  <h1>Welcome, <%= @user.name %></h1>
-  <div><%= gravatar_tag @user.email %></div>
+<div class="row"><p></p></div>
+<div class="row">
+  <div class="large-9 push-3 columns">
+    <div class="row"><p></p></div>
+    <div class="row"><h2>Recent activity</h2></div>
+    <div class="row"><p></p></div>
+    <div class='large-6 columns'>
+      <h3>Questions</h3>
+      <% @questions.each do |question| %>
+      <ul>
+        <li><%= link_to question.title, question_path(question.id) %></li>
+      <% end %>
+      </ul>
+    </div>
+    <div class='large-6 columns'>
+      <h3>Answers</h3>
+      <% @answers.each do |answer| %>
+      <ul>
+        <li><%= link_to answer.question.title, question_path(answer.question_id) %></li>
+      <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="large-3 pull-9 columns">
+    <ul class="side-nav">
+      <h3>Welcome, <%= @user.name %></h3>
+      <div><%= gravatar_tag @user.email %></div>
+    </ul>
+  </div>
 
-  <h3>Questions</h3>
-  <% @questions.each do |question| %>
-  <ul>
-    <li><%= link_to question.title, question_path(question.id) %></li>
-  <% end %>
-  </ul>
-
-  <h3>Answers</h3>
-  <% @answers.each do |answer| %>
-  <ul>
-    <li><%= link_to answer.question.title, question_path(answer.question_id) %></li>
-  <% end %>
-  </ul>
 </div>

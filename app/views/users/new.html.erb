@@ -1,11 +1,19 @@
-<%= form_for @user do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :email %>
-  <%= f.email_field :email %>
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-  <%= f.label :'confirm password' %>
-  <%= f.password_field :password_confirmation %>
-  <%= f.submit %>
-<% end %>
+<div class="row"><p></p></div>
+<div class="row">
+  <div class="large-9 columns" role="content">
+    <h3>Tell DemBoyz your problem:</h3>
+    <%= form_for @user do |f| %>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+      <%= f.label :email %>
+      <%= f.email_field :email %>
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+      <%= f.label :'confirm password' %>
+      <%= f.password_field :password_confirmation %>
+      <%= f.submit 'Signup', class: 'small button' %>
+    <% end %>
+  </div>
+  <aside class="large-3 columns">
+  </aside>
+</div>
