@@ -6,7 +6,7 @@ class Question < ActiveRecord::Base
 
   def create_tags(tags)
     tags[:title].split(',').each do |tag|
-      self.tags.create(title: tag.strip)
+      self.tags << Tag.find_or_create_by(title: tag.strip)
     end
   end
 
