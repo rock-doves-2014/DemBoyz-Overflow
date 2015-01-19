@@ -45,20 +45,23 @@
             <%= answer.calculate_down_votes %>
           </div>
 
-          <%= link_to "Edit Answer", edit_answer_path(answer.id, question_id: @question.id), method: :get %>
-          <%= link_to "Delete Answer", answer, :method => :delete %>
+    <% if session[:user_id] == answer.user_id %>
+      <%= link_to "Edit Answer", edit_answer_path(answer.id, question_id: @question.id), method: :get %>
+      <%= link_to "Delete Answer", answer, :method => :delete %>
+    <% end %>
 
         </li><br><br><br>
       <% end %>
     </ul>
 
-    <%= link_to "Answer Question", new_answer_path(question_id: @question.id), method: :get %>
-    <%= link_to "Edit Question", edit_question_path(@question.id), method: :get %>
-    <%= link_to "Delete Question", @question, :method => :delete %>
+<% if session[:user_id] == @question.user_id %>
+  <%= link_to "Edit Question", edit_question_path(@question.id), method: :get %>
+  <%= link_to "Delete Question", @question, :method => :delete %>
+<% else %>
+  <%= link_to "Answer Question", new_answer_path(question_id: @question.id), method: :get %>
+<% end %>
 
   </div>
   <aside class="large-3 columns">
   </aside>
 </div>
-
-
