@@ -4,6 +4,8 @@ class QuestionsController < ApplicationController
   def index
     @questions = Question.search(params[:search])
     if params[:search]
+      # the name is a bit wonky on this, but I love that you're doing something
+      # that creates chainable ActiveRecord calls
       @questions = Question.search(params[:search]).order("created_at DESC")
     else
       @questions = Question.all.order('created_at DESC')

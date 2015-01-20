@@ -1,5 +1,6 @@
 require 'rails_helper'
 
+# not so helpful...
 describe Tag do
   it 'is valid with a title' do
     tag = Tag.new(

@@ -16,4 +16,7 @@
 //= require turbolinks
 //= require_tree .
 
+// Pro tip: don't put anything in here.  this is a manifest file, it should be
+// used to include other files, not to run javascript
+
 $(function(){ $(document).foundation(); });

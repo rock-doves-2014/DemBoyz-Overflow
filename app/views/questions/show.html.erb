@@ -19,6 +19,7 @@
             <%= answer.calculate_up_votes %>
           </div>
 
+          <!-- i feel like some partials would be helpful..like a _vote_form.html.erb partial? -->
           <div class="vote_btn">
             <%= form_for @vote do |f| %>
               <%= f.hidden_field :status, :value => true %>

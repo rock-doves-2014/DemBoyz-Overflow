@@ -12,7 +12,7 @@ class Question < ActiveRecord::Base
 
   validates :title, presence: true
 
-  def self.search(query)
+  def self.fuzzy_title_match(query)
     where("title like ?", "%#{query}%")
   end
 
