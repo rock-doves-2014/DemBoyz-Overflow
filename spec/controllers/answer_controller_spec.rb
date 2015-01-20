@@ -1,14 +1,17 @@
 require 'rails_helper'
 
+# Code doesn't work here, but the ideal would be tests that look like this.
+
 describe AnswersController do
+  let(:user) { create(:user) }
+  let!(:question) { create(:question) }
+  let!(:answer) { create(:answer, question_id: question.id) }
 
   before(:each) do
-  user = create(:user)
-  session[:user_id] = user.id
+    session[:user_id] = user.id
   end
 
   describe "POST create" do
-    question = Question.create(title:'Title', content: 'Content')
     it "creates a new Answer" do
       expect {
         post :create, answer: {content: 'Content', question_id: question.id }
@@ -18,8 +21,6 @@ describe AnswersController do
 
   describe "DELETE destroy" do
     it "destroys a requested answer" do
-      question = Question.create(title:'Title', content: 'Content')
-      answer = Answer.create!(content: 'Content', question_id: question.id)
       expect {
         delete :destroy, {:id => answer.to_param}
       }.to change(Answer, :count).by(-1)
@@ -28,8 +29,6 @@ describe AnswersController do
 
   describe "PUT update" do
     it "updates the requested answer" do
-      question = Question.create!(title: 'Title', content: 'Content')
-      answer = Answer.create!(content: 'Content', question_id: question.id)
       Answer.any_instance.should_receive(:update).with({ "content" => "new content" })
       put :update, {:id => answer.to_param, :answer => { "content" => "new content" }}
     end

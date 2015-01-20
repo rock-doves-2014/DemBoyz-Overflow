@@ -1,3 +1,4 @@
+# don't commit empty stuff like this people who use genetors named dylan shine 
 require 'rails_helper'
 
 # RSpec.describe Answer, :type => :model do

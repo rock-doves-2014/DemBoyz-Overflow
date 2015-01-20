@@ -2,6 +2,7 @@ require 'rails_helper'
 
 describe QuestionsController do
 
+  # Indentation counts..
   before(:each) do
   user = create(:user)
   session[:user_id] = user.id
